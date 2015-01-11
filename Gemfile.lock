@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arel (6.0.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -44,6 +45,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    chronic (0.10.2)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -52,14 +54,35 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     columnize (0.9.0)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
+    dropbox-sdk (1.6.4)
+      json
     erubis (2.7.0)
     execjs (2.2.2)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
+    hashie (3.3.2)
+    health_graph (0.6.0)
+      faraday (>= 0.7.4)
+      faraday_middleware (>= 0.7.8)
+      hashie (>= 1.2)
+      health_graph
+      oauth2 (>= 0.5.2)
+      webmock (>= 1.7.6)
     hike (1.2.3)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
+    jawbone (0.4)
+      httparty (~> 0.11.0)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -68,6 +91,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
+    jwt (1.2.0)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -75,9 +99,20 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    moves (0.1.1)
+      rest-client
     multi_json (1.10.1)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
+    netrc (0.10.2)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
+    oauth2 (1.0.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -108,6 +143,12 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    responders (2.0.2)
+      railties (>= 4.2.0.alpha, < 5)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    safe_yaml (1.0.4)
     sass (3.4.9)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -145,6 +186,11 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (~> 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    webmock (1.20.4)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -152,9 +198,15 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  dropbox-sdk
+  health_graph
+  httparty
+  jawbone
   jbuilder (~> 2.0)
   jquery-rails
+  moves
   rails (= 4.2.0)
+  responders
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
@@ -162,3 +214,4 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  whenever
