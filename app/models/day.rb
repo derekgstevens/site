@@ -33,7 +33,7 @@ class Day < ActiveRecord::Base
 		ulti_commits = Github.repos.commits.all 'derekstevens', 'ulti-team'
 		site_commits = Github.repos.commits.all 'derekstevens', 'site'
 
-		all_commits = ulti_commits + site_commits
+		all_commits = ulti_commits
 
 
 		all_commits.each do |c|
