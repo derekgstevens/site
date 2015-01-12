@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111163122) do
+ActiveRecord::Schema.define(version: 20150111235356) do
 
   create_table "days", force: :cascade do |t|
     t.datetime "day_date"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150111163122) do
     t.integer  "water_intake"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.text     "commits"
   end
 
   create_table "months", force: :cascade do |t|

@@ -41,3 +41,7 @@ end
 every '10 * * * *' do 
 	runner "Day.moves"
 end
+
+every '5,15,25,35,45,55 * * * *' do 
+	runner "Day.github"
+end

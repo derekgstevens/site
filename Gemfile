@@ -18,6 +18,7 @@ gem 'whenever'
 gem 'moves'
 gem 'health_graph'
 gem 'dropbox-sdk'
+gem 'github_api'
 
 # gem 'capistrano-rails', group: :development
 

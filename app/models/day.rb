@@ -6,6 +6,7 @@ class Day < ActiveRecord::Base
 
 	serialize :storyline
 	serialize :reports
+	serialize :commits
 
 	def self.new_day
 		day = Day.new(day_date: Time.now)
@@ -21,7 +22,40 @@ class Day < ActiveRecord::Base
 		day.save
 	end
 
-		def self.reporter
+	def self.github
+		day = Day.last
+		day_date = day.day_date.strftime("%Y-%m-%d")
+		todays_commits = day.commits
+		commit_count = 0
+		commits_to_add = ""
+
+
+		ulti_commits = Github.repos.commits.all 'derekstevens', 'ulti-team'
+		site_commits = Github.repos.commits.all 'derekstevens', 'site'
+
+		all_commits = ulti_commits + site_commits
+
+
+		all_commits.each do |c|
+			if c["commit"]["author"]["date"].to_date.strftime("%Y-%m-%d") == day_date
+				if todays_commits !~ /c["sha"]/
+					commit = {:commit_time => c["commit"]["author"]["date"].to_datetime.strftime("%H:%M:%S"),
+										:sha => c["sha"],
+										:html_url => c["html_url"],
+										:message => c["commit"]["message"]
+									 }
+
+					commits_to_add = commits_to_add + commit.to_s
+				end
+			end
+		end
+
+		todays_commits = todays_commits.to_s + commits_to_add
+		day.commits = todays_commits
+		day.save
+	end
+
+	def self.reporter
 		day = Day.last
 		day_date = day.day_date.strftime("%Y-%m-%d")
 
