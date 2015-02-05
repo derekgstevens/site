@@ -2,7 +2,7 @@
 
 </header>
 <section id="quote">
-
+Quote
 </section>
 
 <section id="quantself">
@@ -10,19 +10,37 @@
 		<h1><%= @day.day_date %></h1>
 		<p>Sleep: <%= @day.min_slept %> | Steps: <%= @day.step_total %></p>
 		<p>Commits: <%= @day.commits %></p>
-		<div id="storyline"></div>
+		<ul class="storyline">
+			<li>
+				<time class="tmtime" datetime="2015-02-05 09:00"><span>09:00</span></time>
+        <div class="tmicon tmicon-phone"></div>
+        <div class="tmlabel"><h2>Home</h2></div>
+      </li>
+      <li>
+        <time class="tmtime" datetime="2015-02-05 11:00"><span>11:00</span></time>
+        <div class="tmicon tmicon-screen"></div>
+        <div class="tmlabel"><h2>Communispace</h2></div>
+      </li>
+      <li>
+        <time class="tmtime" datetime="2015-02-05 18:00"><span>18:00</span></time>
+        <div class="tmicon tmicon-screen"></div>
+        <div class="tmlabel"><h2>Dog Park</h2></div>
+      </li>
+		</ul>
 	</div>
 </section>
 
 <section id="projects">
-
+Projects
 </section>
 
 <section id="about">
+  About
 	<aside id="blog">
 		Blog
 	</aside>
 </section>
 
 <footer id="footer">
+Footer
 </footer>

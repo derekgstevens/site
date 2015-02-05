@@ -22,7 +22,6 @@ gem 'github_api'
 gem 'unicorn-rails'
 gem 'mina'
 gem 'mina-unicorn', :require => false
-gem 'd3-rails'
 
 # gem 'capistrano-rails', group: :development
 
