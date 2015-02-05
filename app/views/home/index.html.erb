@@ -10,6 +10,15 @@ Quote
 		<h1><%= @day.day_date %></h1>
 		<p>Sleep: <%= @day.min_slept %> | Steps: <%= @day.step_total %></p>
 		<p>Commits: <%= @day.commits %></p>
+    <ul class="storyline">
+    <% @day.storyline.each do |story| %>
+      <li>
+        <time class="tmtime" datetime="<% "#{story["startTime"]}" %>"><span><%= "#{story["startTime"]}" %></span></time>
+        <div class="tmicon <% "#{story["type"]}" %>"></div>
+        <div class="tmlabel <% "#{story["place"]}" %>"><h2><%= story["place"].to_a[1] %></h2></div>
+      </li>
+    <% end %>
+    </ul>
 		<ul class="storyline">
 			<li>
 				<time class="tmtime" datetime="2015-02-05 09:00"><span>09:00</span></time>
