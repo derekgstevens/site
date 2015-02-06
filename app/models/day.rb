@@ -9,13 +9,15 @@ class Day < ActiveRecord::Base
 	serialize :commits
 
 	def prepare_storyline
-
+		seconds_in_day = 86400
+		min_in_day = 1440
 		timeline = Array.new
 		self.storyline.each do |story|
 			element = Hash.new
 			element[:type] = story["type"]
 			element[:startTime] = story["startTime"].to_time
 			element[:endTime] = story["endTime"].to_time
+			element[:width] = calculate_width(element[:startTime], element[:endTime])
 
 			if element[:type] == "place"
 				place = story["place"].values
@@ -27,6 +29,10 @@ class Day < ActiveRecord::Base
 			timeline << element
 		end
 		timeline
+	end
+
+	def calculate_width(startTime, endTime)
+		duration = ((endTime - startTime) / 60) / 60
 	end
 
 	def self.new_day
