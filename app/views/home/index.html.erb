@@ -11,11 +11,11 @@ Quote
 		<p>Sleep: <%= @day.min_slept %> | Steps: <%= @day.step_total %></p>
 		<p>Commits: <%= @day.commits %></p>
     <ul class="storyline">
-    <% @day.storyline.each do |story| %>
+    <% @storyline.each do |story| %>
       <li>
         <time class="tmtime" datetime="<% "#{story["startTime"]}" %>"><span><%= "#{story["startTime"]}" %></span></time>
         <div class="tmicon <% "#{story["type"]}" %>"></div>
-        <div class="tmlabel <% "#{story["place"]}" %>"><h2><%= story["place"].to_a[1] %></h2></div>
+        <div class="tmlabel <% "#{story["place"]}" %>"><h2><%= story["place"] %></h2></div>
       </li>
     <% end %>
     </ul>
