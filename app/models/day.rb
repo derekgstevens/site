@@ -8,6 +8,27 @@ class Day < ActiveRecord::Base
 	serialize :reports
 	serialize :commits
 
+	def prepare_storyline
+
+		timeline = Array.new
+		self.storyline.each do |story|
+			element = Hash.new
+			element[:type] = story["type"]
+			element[:startTime] = story["startTime"].to_time
+			element[:endTime] = story["endTime"].to_time
+
+			if element[:type] == "place"
+				place = story["place"].values
+				element[:name] = place[1]
+			elsif element[:type] == "move"
+				activities = story["activities"]
+			else
+			end
+			timeline << element
+		end
+		timeline
+	end
+
 	def self.new_day
 		day = Day.new(day_date: Time.now)
 		month = Month.find(Time.now.month)

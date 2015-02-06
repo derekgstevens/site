@@ -11,46 +11,14 @@ Quote
 		<p>Sleep: <%= @day.min_slept %> | Steps: <%= @day.step_total %></p>
 		<p>Commits: <%= @day.commits %></p>
     <ul class="storyline">
-    <% @storyline.each do |story| %>
+    <% @day.prepare_storyline.each do |story| %>
       <li>
-        <time class="tmtime" datetime="<% "#{story["startTime"]}" %>"><span><%= "#{story["startTime"]}" %></span></time>
-        <div class="tmicon <% "#{story["type"]}" %>"></div>
-        <div class="tmlabel <% "#{story["place"]}" %>"><h2><%= story["place"] %></h2></div>
+        <time class="tmtime" datetime="<%= "#{story[:startTime]}" %>"><span><%= story[:startTime].strftime("%H:%M") %></span></time>
+        <div class="tmicon <%= "#{story[:type]}" %>"></div>
+        <div class="tmlabel <%= "#{story[:name]}" %>"><h2><%= story[:name] %></h2></div>
       </li>
     <% end %>
     </ul>
-		<ul class="storyline">
-			<li>
-				<time class="tmtime" datetime="2015-02-05 09:00"><span>09:00</span></time>
-        <div class="tmicon tmicon-phone"></div>
-        <div class="tmlabel"><h2>Home</h2></div>
-      </li>
-      <li>
-        <time class="tmtime" datetime="2015-02-05 11:00"><span>11:00</span></time>
-        <div class="tmicon tmicon-screen"></div>
-        <div class="tmlabel"><h2>Communispace</h2></div>
-      </li>
-      <li>
-        <time class="tmtime" datetime="2015-02-05 18:00"><span>18:00</span></time>
-        <div class="tmicon tmicon-screen"></div>
-        <div class="tmlabel"><h2>Dog Park</h2></div>
-      </li>
-      <li>
-        <time class="tmtime" datetime="2015-02-05 18:00"><span>18:00</span></time>
-        <div class="tmicon tmicon-screen"></div>
-        <div class="tmlabel"><h2>Dog Park</h2></div>
-      </li>
-      <li>
-        <time class="tmtime" datetime="2015-02-05 18:00"><span>18:00</span></time>
-        <div class="tmicon tmicon-screen"></div>
-        <div class="tmlabel"><h2>Dog Park</h2></div>
-      </li>
-      <li>
-        <time class="tmtime" datetime="2015-02-05 18:00"><span>18:00</span></time>
-        <div class="tmicon tmicon-screen"></div>
-        <div class="tmlabel"><h2>Dog Park</h2></div>
-      </li>
-		</ul>
 	</div>
 </section>
 
