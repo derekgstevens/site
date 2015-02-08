@@ -15,7 +15,7 @@ Quote
       <li>
         <time class="tmtime" datetime="<%= "#{story[:startTime]}" %>"><span><%= story[:startTime].strftime("%H:%M") %></span></time>
         <div class="tmicon <%= "#{story[:type]}" %>"></div>
-        <div class="tmlabel <%= "#{story[:name]}" %>" style="width: <%= story[:width] %>%; height: <%= story[:width] %>%;"><h2><%= story[:name] %></h2></div>
+        <div class="tmlabel <%= "#{story[:name]}" %>" style="width: <%= story[:width] %>%; height: <%= story[:width] %>%;"><h2><%= story[:name] %></h2> <%= "#{story[:startTime]} | #{story[:endTime]}" %></div>
       </li>
     <% end %>
     </ul>
