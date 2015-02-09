@@ -14,19 +14,46 @@
  *= require_self
  */
 
+
  section {
  	width: 100%;
  	height: 300px;
  	border-bottom: 1px solid black;
  }
+header {
+	height: 50px;
+}
 
+section #nav {
+	height: 50px;
+}
 
- aside {
- 	border-left: 1px solid black;
- 	width: 30%;
- 	height: 300px;
- 	float: right;
- }
+#sub-nav {
+	height: 50px;
+	text-align: center;
+}
+
+.nav {
+	list-style: none;
+}
+
+.nav li {
+	display: inline-block;
+	text-transform: uppercase;
+	margin: 0 0 10px 15px;
+}
+
+.pull-right {
+	float: right;
+}
+
+.social-nav {
+	margin-right: 25%;
+}
+
+header ul {
+	display: inline-block;
+}
 
 
 
