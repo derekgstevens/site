@@ -8,6 +8,40 @@ class Day < ActiveRecord::Base
 	serialize :reports
 	serialize :commits
 
+	def prepare_storyline
+		timeline = Array.new
+		self.storyline.each do |story|
+			element = Hash.new
+			element[:type] = story["type"]
+			if story["startTime"].in_time_zone.day != self.day_date.day
+				element[:startTime] = self.day_date.beginning_of_day
+			else 
+				element[:startTime] = story["startTime"].in_time_zone
+			end
+			if story["endTime"].in_time_zone.day != self.day_date.day
+				element[:endTime] = self.day_date.end_of_day
+			else
+				element[:endTime] = story["endTime"].in_time_zone
+			end
+			element[:width] = calculate_width(element[:startTime], element[:endTime])
+
+			if element[:type] == "place"
+				place = story["place"].values
+				element[:name] = place[1]
+			elsif element[:type] == "move"
+				activities = story["activities"]
+			else
+			end
+			timeline << element
+		end
+		timeline
+	end
+
+	def calculate_width(startTime, endTime)
+		seconds_in_day = 86400
+		duration = ((endTime - startTime) / seconds_in_day) * 100
+	end
+
 	def self.new_day
 		day = Day.new(day_date: Time.now)
 		month = Month.find(Time.now.month)
