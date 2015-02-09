@@ -10,13 +10,11 @@
 }
 
 .storyline {
-  margin: 30px 0 0 0;
-  padding: 0;
   list-style: none;
-  position: relative;
+  padding: 0;
 }
 
-.storyline:before {
+/*.storyline:before {
   content: '';
   position: absolute;
   top: 0;
@@ -25,7 +23,7 @@
   background: #afdcf8;
   left: 20%;
   margin-left: -10px;
-}
+}*/
 
 .storyline > li {
   position: relative;
@@ -34,18 +32,17 @@
 .storyline > li .tmtime {
   display: block;
   width: 25%;
-  padding-right: 100px;
+  margin-top: 20px;
+  padding-top: 5px;
   position: absolute;
 }
 
 .storyline > li .tmtime span {
   display: block;
-  text-align: right;
 }
 
 .storyline > li .tmtime span:first-child {
   font-size: 0.9em;
-  color: #3594cb;
 }
 
 .storyline > li:nth-child(odd) .tmtime span:first-child {
@@ -53,12 +50,10 @@
 }
 
 .storyline > li .tmlabel {
-  width: 20%;
-  margin: 0 0 15px 25%;
+  margin: -17px 0 0 0;
+  height: 15px;
   background: #3594cb;
-  color: #fff;
-  padding: 5px 20px 5px 20px;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold;
   line-height: 1.4;
   position: relative;
@@ -70,27 +65,9 @@
 }
 
 .storyline > li .tmlabel h2 {
-  margin-top: 0px;
-  padding: 0 0 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding: 0 0 0 5%;
 }
 
-.storyline > li .tmlabel:after {
-  right: 100%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-right-color: #3594cb;
-  border-width: 10px;
-  top: 10px;
-}
-
-.storyline > li:nth-child(odd) .tmlabel:after {
-  border-right-color: #6cbfee;
-}
 
 .storyline > li .Home {
   background: #32CD32 !important;
@@ -101,8 +78,8 @@
 }
 
 .storyline > li .tmicon {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   font-family: 'ecoico';
   speak: none;
   font-style: normal;
@@ -118,11 +95,26 @@
   border-radius: 50%;
   box-shadow: 0 0 0 8px #afdcf8;
   text-align: center;
-  left: 20%;
-  top: 0;
-  margin: 0 0 0 -25px;
+  margin-top: -3px;
+  z-index: 999;
 }
 
 .tmicon-phone:before {
   content: "\e000";
 }
+
+
+/* ------------------------------ */
+
+.bar {
+  height: 10px;
+  background: #eee;
+  width: 100%;
+  position: relative;
+  top: 13px;
+  left:;
+}
+
+
+
+

@@ -7,15 +7,18 @@ Quote
 
 <section id="quantself">
 	<div class="day">
-		<h1><%= @day.day_date %></h1>
+		<h1><%= "#{@day.month.name} #{@day.day_date.day.ordinalize}" %></h1>
 		<p>Sleep: <%= @day.min_slept %> | Steps: <%= @day.step_total %></p>
 		<p>Commits: <%= @day.commits %></p>
+    
+
+    <div class="bar"></div>
     <ul class="storyline">
     <% @day.prepare_storyline.each do |story| %>
       <li>
         <time class="tmtime" datetime="<%= "#{story[:startTime]}" %>"><span><%= story[:startTime].strftime("%H:%M") %></span></time>
-        <div class="tmicon <%= "#{story[:type]}" %>"></div>
-        <div class="tmlabel <%= "#{story[:name]}" %>" style="width: <%= story[:width] %>%; height: <%= story[:width] %>%;"><h2><%= story[:name] %></h2> <%= "#{story[:startTime]} | #{story[:endTime]}" %></div>
+        <div class="tmicon <%= "#{story[:name]}" %>"></div>
+        <div class="tmlabel <%= "#{story[:name]}" %>" style="width: <%= story[:width] %>%;"><h2><%= story[:name] %></h2></div>
       </li>
     <% end %>
     </ul>
