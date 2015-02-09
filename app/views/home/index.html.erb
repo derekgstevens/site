@@ -37,6 +37,7 @@
       </li>
     <% end %>
     </ul>
+    <div class="current-time" style="left: <%= ((Time.now - Time.now.beginning_of_day) / 86400) * 100 %>%;"><span><%= Time.now.strftime("%H:%M") %></span></div>
 	</div>
 </section>
 

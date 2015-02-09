@@ -115,6 +115,30 @@
   left:;
 }
 
+.current-time {
+  display: block;
+  width: 25%;
+  margin-top: -17px;
+  padding-top: 5px;
+  position: absolute;
+}
+
+.current-time:before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  bottom: 15px;
+  width: 2px;
+  background: #afdcf8;
+
+}
+
+.current-time span {
+  margin: 10px 0 0 -17px;
+  display: block;
+}
+
+
 
 
 
