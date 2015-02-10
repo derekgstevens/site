@@ -30,9 +30,9 @@
 }*/
 
 .storyline > li {
-  position: relative;
+  position: absolute;
   display: inline-block;
-  top: 0;
+  margin: -17px 0 0 0;
 }
 
 .storyline > li .tmtime {
