@@ -9,6 +9,10 @@
   font-style: normal;
 }
 
+.day {
+  position: absolute;
+}
+
 .storyline {
   list-style: none;
   padding: 0;
@@ -26,7 +30,9 @@
 }*/
 
 .storyline > li {
-  position: relative;
+  position: absolute;
+  display: inline-block;
+  margin: -17px 0 0 0;
 }
 
 .storyline > li .tmtime {
@@ -65,7 +71,7 @@
 }
 
 .storyline > li .tmlabel h2 {
-  padding: 0 0 0 5%;
+  left: 20px;
 }
 
 
@@ -78,8 +84,8 @@
 }
 
 .storyline > li .tmicon {
-  width: 20px;
-  height: 20px;
+  width: 5px;
+  height: 5px;
   font-family: 'ecoico';
   speak: none;
   font-style: normal;
@@ -95,7 +101,7 @@
   border-radius: 50%;
   box-shadow: 0 0 0 8px #afdcf8;
   text-align: center;
-  margin-top: -3px;
+  margin-top: 5px;
   z-index: 999;
 }
 
@@ -113,6 +119,30 @@
   position: relative;
   top: 13px;
 }
+
+.current-time {
+  display: block;
+  width: 25%;
+  margin-top: -17px;
+  padding-top: 5px;
+  position: absolute;
+}
+
+.current-time:before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  bottom: 15px;
+  width: 2px;
+  background: #afdcf8;
+
+}
+
+.current-time span {
+  margin: 10px 0 0 -17px;
+  display: block;
+}
+
 
 
 
