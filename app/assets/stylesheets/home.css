@@ -9,6 +9,10 @@
   font-style: normal;
 }
 
+.day {
+  position: absolute;
+}
+
 .storyline {
   list-style: none;
   padding: 0;
@@ -27,6 +31,8 @@
 
 .storyline > li {
   position: relative;
+  display: inline-block;
+  top: 0;
 }
 
 .storyline > li .tmtime {
@@ -65,7 +71,7 @@
 }
 
 .storyline > li .tmlabel h2 {
-  padding: 0 0 0 5%;
+  left: 20px;
 }
 
 
@@ -78,8 +84,8 @@
 }
 
 .storyline > li .tmicon {
-  width: 20px;
-  height: 20px;
+  width: 5px;
+  height: 5px;
   font-family: 'ecoico';
   speak: none;
   font-style: normal;
@@ -95,7 +101,7 @@
   border-radius: 50%;
   box-shadow: 0 0 0 8px #afdcf8;
   text-align: center;
-  margin-top: -3px;
+  margin-top: 5px;
   z-index: 999;
 }
 
