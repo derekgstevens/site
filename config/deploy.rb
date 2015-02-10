@@ -86,6 +86,10 @@ task :deploy => :environment do
   end
 end
 
+task :restart => :environment do 
+  invoke :'unicorn:stop'
+  invoke :'unicorn:start'
+end
 # For help in making your deploy script, see the Mina documentation:
 #
 #  - http://nadarei.co/mina
