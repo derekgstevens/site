@@ -71,8 +71,14 @@
 }
 
 .storyline > li .tmlabel h2 {
-  left: 20px;
+  text-align: center;
   visibility: hidden;
+  top: 45px;
+  position: relative;
+}
+
+.storyline > li .tmlabel:hover h2 {
+  visibility: visible;
 }
 
 .storyline > li .tmlabel .bubble-bottom {
