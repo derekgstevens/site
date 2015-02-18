@@ -8,6 +8,40 @@ class Day < ActiveRecord::Base
 	serialize :reports
 	serialize :commits
 
+	def prepare_storyline
+		timeline = Array.new
+		self.storyline.each do |story|
+			element = Hash.new
+			element[:type] = story["type"]
+			if story["startTime"].in_time_zone.day != self.day_date.day
+				element[:startTime] = self.day_date.beginning_of_day
+			else 
+				element[:startTime] = story["startTime"].in_time_zone
+			end
+			if story["endTime"].in_time_zone.day != self.day_date.day
+				element[:endTime] = self.day_date.end_of_day
+			else
+				element[:endTime] = story["endTime"].in_time_zone
+			end
+			element[:width] = calculate_width(element[:startTime], element[:endTime])
+
+			if element[:type] == "place"
+				place = story["place"].values
+				element[:name] = place[1]
+			elsif element[:type] == "move"
+				activities = story["activities"]
+			else
+			end
+			timeline << element
+		end
+		timeline
+	end
+
+	def calculate_width(startTime, endTime)
+		seconds_in_day = 86400
+		duration = ((endTime - startTime) / seconds_in_day) * 100
+	end
+
 	def self.new_day
 		day = Day.new(day_date: Time.now)
 		month = Month.find(Time.now.month)
@@ -29,29 +63,31 @@ class Day < ActiveRecord::Base
 		commit_count = 0
 		commits_to_add = ""
 
+		repos = ['ulti-team', 'site']
 
-		ulti_commits = Github.repos.commits.all 'derekstevens', 'ulti-team'
-		site_commits = Github.repos.commits.all 'derekstevens', 'site'
+		repos.each do |repo|
 
-		all_commits = ulti_commits
+			all_commits = Github.repos.commits.all 'dstevens-cs', repo
 
+			puts "------------------"
+			all_commits.each do |c|
+				puts c["commit"]["author"]["date"].in_time_zone
+				if c["commit"]["author"]["date"].in_time_zone.strftime("%Y-%m-%d") == day_date
+					if todays_commits !~ /c["sha"]/
+						commit = {:commit_time => c["commit"]["author"]["date"].in_time_zone.strftime("%H:%M:%S"),
+											:sha => c["sha"],
+											:html_url => c["html_url"],
+											:message => c["commit"]["message"]
+										 }
 
-		all_commits.each do |c|
-			if c["commit"]["author"]["date"].to_date.strftime("%Y-%m-%d") == day_date
-				if todays_commits !~ /c["sha"]/
-					commit = {:commit_time => c["commit"]["author"]["date"].to_datetime.strftime("%H:%M:%S"),
-										:sha => c["sha"],
-										:html_url => c["html_url"],
-										:message => c["commit"]["message"]
-									 }
-
-					commits_to_add = commits_to_add + commit.to_s
+						commits_to_add = commits_to_add + commit.to_s
+					end
 				end
 			end
-		end
 
-		todays_commits = todays_commits.to_s + commits_to_add
-		day.commits = todays_commits
+			todays_commits = todays_commits.to_s + commits_to_add
+			day.commits = todays_commits
+		end
 		day.save
 	end
 

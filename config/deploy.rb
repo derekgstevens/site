@@ -14,7 +14,7 @@ require 'mina/whenever'
 
 set :domain, '104.131.170.226'
 set :deploy_to, '/home/deployer/site'
-set :repository, 'https://github.com/derekstevens/site.git'
+set :repository, 'https://github.com/dstevens-cs/site.git'
 set :branch, 'master'
 set :user, 'deployer'
 set :forward_agent, true
@@ -86,6 +86,10 @@ task :deploy => :environment do
   end
 end
 
+task :restart => :environment do 
+  invoke :'unicorn:stop'
+  invoke :'unicorn:start'
+end
 # For help in making your deploy script, see the Mina documentation:
 #
 #  - http://nadarei.co/mina

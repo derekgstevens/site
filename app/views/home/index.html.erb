@@ -1,16 +1,43 @@
 <header id="nav">
+	LOGO 
+	<ul class="nav">
+		<li>About</li>
+		<li>Contact</li>
+	</ul>
 
+	<ul class="nav pull-right social-nav">
+		<li>Twitter</li>
+		<li><a href="https://github.com/dstevens-cs" target="_blank">Github</a></li>
+	</ul>
 </header>
-<section id="quote">
+
+<section id="header-img">
 
 </section>
-
+<section id="sub-nav">
+	<ul class="nav">
+		<li>Projects</li>
+		<li>Writing</li>
+	</ul>
+</section>
 <section id="quantself">
 	<div class="day">
-		<h1><%= @day.day_date %></h1>
+		<h1><%= "#{@day.month.name} #{@day.day_date.day.ordinalize}" %></h1>
 		<p>Sleep: <%= @day.min_slept %> | Steps: <%= @day.step_total %></p>
-		<p>Commits: <%= @day.commits %><p>
-		<p>Storyline: <%= @day.storyline %></p>
+		<p>Commits: <%= @day.commits %></p>
+    
+
+    <div class="bar"></div>
+    <ul class="storyline">
+    <% @day.prepare_storyline.each do |story| %>
+      <li style="left: <%= ((story[:startTime] - @day.day_date.beginning_of_day) / 86400) * 100 %>%; width: <%= story[:width] %>%;">
+        <time class="tmtime" datetime="<%= "#{story[:startTime]}" %>"><span><%= story[:startTime].strftime("%H:%M") %></span></time>
+        <!-- <div class="tmicon <%= "#{story[:type]}" %>"></div> -->
+        <div class="tmlabel bubble-bottom <%= "#{story[:type]} #{story[:name]}" %>"><h2><%= story[:name] %></h2></div>
+      </li>
+    <% end %>
+    </ul>
+    <div class="current-time" style="left: <%= ((Time.now - Time.now.beginning_of_day) / 86400) * 100 %>%;"><span><%= Time.now.strftime("%H:%M") %></span></div>
 	</div>
 </section>
 
@@ -33,11 +60,10 @@
 	</div>
 </section>
 
-<section id="about">
-	<aside id="blog">
-		Blog
-	</aside>
+<section id="writing">
+Writing
 </section>
 
 <footer id="footer">
+Footer
 </footer>
