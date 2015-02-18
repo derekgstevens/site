@@ -31,9 +31,10 @@
     <ul class="storyline">
     <% @day.prepare_storyline.each do |story| %>
       <li style="left: <%= ((story[:startTime] - @day.day_date.beginning_of_day) / 86400) * 100 %>%; width: <%= story[:width] %>%;">
-        <time class="tmtime" datetime="<%= "#{story[:startTime]}" %>"><span><%= story[:startTime].strftime("%H:%M") %></span></time>
+       
         <!-- <div class="tmicon <%= "#{story[:type]}" %>"></div> -->
-        <div class="tmlabel bubble-bottom <%= "#{story[:type]} #{story[:name]}" %>"><h2><%= story[:name] %></h2></div>
+        <div class="tmlabel bubble-bottom <%= "#{story[:type]} #{story[:name]}" %>">
+         <time class="tmtime-start" datetime="<%= "#{story[:startTime]}" %>"><span><%= story[:startTime].strftime("%H:%M") %></span></time><time class="tmtime-end" datetime="<%= "#{story[:endTime]}" %>"><span><%= story[:endTime].strftime("%H:%M") %></span></time><h2><%= story[:name] %></h2></div>
       </li>
     <% end %>
     </ul>
