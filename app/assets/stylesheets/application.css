@@ -13,10 +13,21 @@
  *= require_tree .
  *= require_self
  */
+section {
+	width: 100%;
+	border-bottom: 1px solid black;
+}
 
+header {
+	height: 50px;
+}
 
 section #nav {
 	height: 50px;
+}
+
+#quantself, #projects {
+	padding-bottom: 100px;
 }
 
 #sub-nav {
