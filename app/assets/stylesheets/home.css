@@ -169,112 +169,36 @@
   display: block;
 }
 
-.projects {
-  position: absolute;
+#projects {
+  display: flex;
+  height: 400px;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
-.project-grid {
+.project {
   position: relative;
-  margin: 0 auto;
-  padding: 1em 0 4em;
-  max-width: 1000px;
-  list-style: none;
-  text-align: center;
-}
-
-.project-grid figure {
-  position: relative;
-  float: left;
-  overflow: hidden; 
-  margin: 10px 1%;
-  min-width: 320px;
-  max-width: 480px;
-  max-height: 360px;
-  width: 48%;
-  background: #3085a3;
-  text-align: center;
-  cursor: pointer;
-}
-
-.project-grid figure img {
-  position: relative;
-  display: block;
-  height: 100%;
-  width: 100%;
-  opacity: 0.8;
-}
-/*
-.project-grid figure figcaption {
-  padding: 2em;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 1.25em;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.project-grid figure figcaption::before,
-.project-grid figure figcaption::after {
-  pointer-events: none;
-}
-
-.project-grid figure figcaption,
-.project-grid figure figcaption > a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.project-grid figure figcaption > a {
-  z-index: 1000;
-  text-indent: 200%;
-  white-space: nowrap;
-  font-size: 0;
-  opacity: 0;
-}
-
-.project-grid figure h2 {
-  word-spacing: -0.15em;
-  font-weight: 300;
-}
-
-.project-grid figure h2 span {
-  font-weight: 800;
-}
-
-.project-grid figure h2,
-.project-grid figure p {
-  margin: 0;
-}
-
-.project-grid figure p {
-  letter-spacing: 1px;
-  font-size: 68.5%;
-}
-
-figure.project-effect figcaption {
+  width: 500px;
+  height: 100px;
+  margin: 20px auto;
   text-align: right;
 }
 
-figure.project-effect h2,
-figure.project-effect p {
+.project h2, .project p, .project a {
   position: absolute;
   right: 30px;
   left: 30px;
   padding: 10px 0;
 }
 
-
-figure.project-effect p {
-  bottom: 30px;
+.project p, .project a {
+  bottom: -100%;
   line-height: 1.5;
   -webkit-transform: translate3d(0,100%,0);
   transform: translate3d(0,100%,0);
 }
 
-figure.project-effect h2 {
+.project h2 {
   top: 30px;
   -webkit-transition: -webkit-transform 0.35s;
   transition: transform 0.35s;
@@ -282,12 +206,12 @@ figure.project-effect h2 {
   transform: translate3d(0,20px,0);
 }
 
-figure.project-effect:hover h2 {
+.project:hover h2 {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
 
-figure.project-effect h2::after {
+.project h2::after {
   position: absolute;
   top: 100%;
   left: 0;
@@ -299,21 +223,23 @@ figure.project-effect h2::after {
   transform: translate3d(0,40px,0);
 }
 
-figure.project-effect h2::after,
-figure.project-effect p {
+.project h2::after, .project p, .project a {
   opacity: 0;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
 }
 
-figure.project-effect:hover h2::after,
-figure.project-effect:hover p {
+.project:hover h2::after,
+.project:hover p,
+.project:hover a {
   opacity: 1;
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
-*/
-
+.project img {
+  max-height: 500px;
+  max-width: 500px
+}
 
 
 
