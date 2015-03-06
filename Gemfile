@@ -22,6 +22,7 @@ gem 'github_api'
 gem 'unicorn-rails'
 gem 'mina'
 gem 'mina-unicorn', :require => false
+gem 'faraday'
 
 # gem 'capistrano-rails', group: :development
 

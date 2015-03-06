@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111235356) do
+ActiveRecord::Schema.define(version: 20150306013313) do
 
   create_table "days", force: :cascade do |t|
     t.datetime "day_date"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20150111235356) do
     t.string   "jawbone_token"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "foursquare_id"
+    t.string   "foursquare_secret"
   end
 
   create_table "years", force: :cascade do |t|

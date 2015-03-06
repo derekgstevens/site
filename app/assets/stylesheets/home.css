@@ -71,6 +71,12 @@
   position: relative;
 }
 
+.storyline > li .tmlabel span.symbol {
+  background-color: #000;
+  height: 70px;
+  width: 70px;
+}
+
 .storyline > li:nth-child(odd) .tmlabel {
   background: #6cbfee;
 }

@@ -9,6 +9,14 @@ class Day < ActiveRecord::Base
 	serialize :commits
 
 	def prepare_storyline
+		user = User.first
+		base_url = 'https://api.foursqure.com/v2/'
+		conn = Faraday.new(:url => "https://api.foursquare.com/v2/") do |faraday|
+			faraday.request :url_encoded
+			faraday.response :logger
+			faraday.adapter Faraday.default_adapter
+		end
+
 		timeline = Array.new
 		self.storyline.each do |story|
 			element = Hash.new
@@ -28,6 +36,18 @@ class Day < ActiveRecord::Base
 			if element[:type] == "place"
 				place = story["place"].values
 				element[:name] = place[1]
+				if element[:name] != "Home"
+					venue_id = place[3]
+					url = "venues/#{venue_id}?" + {client_id: user.foursquare_id, client_secret: user.foursquare_secret, m: 'foursquare', v: '20150101' }.to_query
+					response = conn.get url
+					venue = JSON.load(response.body)
+					element[:venue_location] = venue["response"]["venue"]["location"]
+					#element[:venue_icon] = venue["response"]["venue"]["categories"]
+					icon = venue["response"]["venue"]["categories"].first["icon"]
+					element[:venue_icon] = icon["prefix"] + "64" + icon["suffix"]
+				else
+					element[:venue_icon] = "https://ss3.4sqi.net/img/categories_v2/building/home_64.png"
+				end
 			elsif element[:type] == "move"
 				activities = story["activities"]
 			else
