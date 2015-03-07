@@ -71,10 +71,14 @@
   position: relative;
 }
 
-.storyline > li .tmlabel span.symbol {
-  background-color: #000;
-  height: 70px;
-  width: 70px;
+.storyline > li .tmlabel .symbol {
+  background-color: transparent;
+  background-size: 32px 32px;
+  background-position: center center;
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  visibility: hidden;
 }
 
 .storyline > li:nth-child(odd) .tmlabel {
@@ -89,7 +93,8 @@
 }
 
 .storyline > li .tmlabel:hover .tmtime-start,
-.storyline > li .tmlabel:hover .tmtime-end {
+.storyline > li .tmlabel:hover .tmtime-end,
+.storyline > li .tmlabel:hover .symbol {
   visibility: visible;
 }
 

@@ -44,7 +44,7 @@ class Day < ActiveRecord::Base
 					element[:venue_location] = venue["response"]["venue"]["location"]
 					#element[:venue_icon] = venue["response"]["venue"]["categories"]
 					icon = venue["response"]["venue"]["categories"].first["icon"]
-					element[:venue_icon] = icon["prefix"] + "64" + icon["suffix"]
+					element[:venue_icon] = icon["prefix"] + "32" + icon["suffix"]
 				else
 					element[:venue_icon] = "https://ss3.4sqi.net/img/categories_v2/building/home_64.png"
 				end
