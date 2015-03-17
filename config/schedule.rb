@@ -38,7 +38,7 @@ every '30 * * * *' do
 	runner "Day.reporter"
 end
 
-every '10 * * * *' do 
+every '*/20 * * * *' do 
 	runner "Day.moves"
 end
 
