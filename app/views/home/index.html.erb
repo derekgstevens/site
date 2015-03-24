@@ -11,38 +11,51 @@
 	</ul>
 </header>
 
-<section id="header-img">
+<section id="header">
+  <div id="workspace">
+    <div class="desk">
+      <div class="table">
+        <div class="drawers">
+        </div>
 
+        <span class="cup">
+        </span>
+
+        <div class="imac">
+        </div>
+
+        <div class="ext-screen">
+        </div>
+
+        <span class="iphone">
+        </span>
+      </div>
+
+      <div class="chair">
+      </div>
+
+      <div class="trash">
+      </div>
+    </div>
+
+    <div class="bookcase">
+      <div class="shelf">
+      </div>
+      <div class="shelf">
+      </div>
+      <div class="shelf">
+      </div>
+    </div>
+  </div>
 </section>
+
 <section id="sub-nav">
 	<ul class="nav">
 		<li>Projects</li>
 		<li>Writing</li>
 	</ul>
 </section>
-<section id="quantself">
-	<div class="day">
-		<h1><%= "#{@day.month.name} #{@day.day_date.day.ordinalize}" %></h1>
-		<p>Sleep: <%= @day.min_slept %> | Steps: <%= @day.step_total %></p>
-		<p>Commits: <%= @day.commits %></p>
-    
 
-    <div class="bar"></div>
-    <ul class="storyline">
-    <% @day.prepare_storyline.each do |story| %>
-      <li style="left: <%= ((story[:startTime] - @day.day_date.beginning_of_day) / 86400) * 100 %>%; width: <%= story[:width] %>%;">
-       
-        <!-- <div class="tmicon <%= "#{story[:type]}" %>"></div> -->
-        <div class="tmlabel bubble-bottom <%= "#{story[:type]} #{story[:name]}" %>">
-         <time class="tmtime-start" datetime="<%= "#{story[:startTime]}" %>"><span><%= story[:startTime].strftime("%H:%M") %></span></time><time class="tmtime-end" datetime="<%= "#{story[:endTime]}" %>"><span><%= story[:endTime].strftime("%H:%M") %></span></time>
-         <span style="background-image: url(<%= "#{story[:venue_icon]}" %>)" class="symbol">&nbsp</span>
-         <h2><%= story[:name] %></h2></div>
-      </li>
-    <% end %>
-    </ul>
-    <div class="current-time" style="left: <%= ((Time.now - Time.now.beginning_of_day) / 86400) * 100 %>%;"><span><%= Time.now.strftime("%H:%M") %></span></div>
-	</div>
-</section>
 
 <section id="projects">
   <div class="project">
