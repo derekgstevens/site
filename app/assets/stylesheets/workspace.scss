@@ -1,0 +1,127 @@
+#header {
+  background: #d9effd;
+  background-image: linear-gradient(90deg, rgba(0,0,0,0) 40%, #aacce2 40%);
+  background-size: 25px 60px;
+}
+
+#workspace {
+  div { position: absolute; }
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    bottom: 0;
+    background: #e2aabe;
+    height: 68px;
+    border-top: 9px solid #ae758a;
+  }
+
+  .desk {
+    width: 800px;
+    height: 100%;
+    margin: auto;
+    position: inherit;
+  }
+}
+
+.table {
+  position: absolute;
+  bottom: 33px;
+  z-index: 1;
+  width: 600px;
+  height: 225px;
+  margin-left: 50px;
+
+  &:after {
+    position: absolute;
+    content: '';
+    background: #ccbdac;
+    height: 21px;
+    width: 100%;
+  }
+  &:before {
+    position: absolute;
+    content: '';
+    background: #e0ceb8;
+    height: 100%;
+    width: 31px;
+  }
+
+  .drawers {
+    position: absolute;
+    right: 0;
+    width: 175px;
+    height: 215px;
+    padding: 23px 0 0 20px;
+    background: #e0ceb8;
+
+    &:after {
+      content: '';
+      width: 100%;
+      height: 5px;
+      position: absolute;
+      bottom: -4px;
+      background: #ca98ab;
+      border-radius: 100%;
+      right: 1px;
+    }
+
+    span {
+      position: relative;
+      padding: 2px;
+      border: 2px solid #bbaa95;
+      width: 165px;
+      height: 70px;
+      margin-top: 10px;
+      display: block;
+
+      &:before {
+        content: '';
+        background: #cebca7;
+        position: absolute;
+        width: 165px;
+        height: 70px;
+      }
+      &:after {
+        content: '';
+        background: #fff;
+        position: absolute;
+        width: 69px;
+        height: 15px;
+        left: 73px;
+        top: 18px;
+        border-radius: 15px 15px 0 0;
+        border-bottom: 2px solid #9b8b77;
+      }
+    }
+  }
+
+  .imac {
+    z-index: 0;
+    margin-top: -182px;
+    margin-left: 45px;
+    width: 165px;
+    height: 100px;
+    background: #5e5e5e;
+    border: 10px solid #fff;
+    border-bottom: 30px solid #fff;
+    border-radius: 5px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 130px;
+      left: 30px;
+      width: 60px;
+      height: 20px;
+      background: #aeaeae;
+      border: 20px solid #d9effd;
+      border-top: 0;
+      border-bottom: 20px solid #fff;
+      border-radius: 5px;
+      box-shadow: 0px 4px 0px -2px #909090;
+    }
+  }
+}
